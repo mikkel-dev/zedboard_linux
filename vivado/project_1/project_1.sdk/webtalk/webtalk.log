@@ -2,17 +2,17 @@
 # Webtalk v2018.3 (64-bit)
 # SW Build 2405991 on Thu Dec  6 23:36:41 MST 2018
 # 
-# Start of session at: Sat Jun 13 12:06:13 2020
-# Process ID: 17870
-# Current directory: /home/ja/project_1/project_1.sdk/webtalk
+# Start of session at: Sat Jun 13 13:32:36 2020
+# Process ID: 4420
+# Current directory: /home/ja/Dokumenty/zedboard_linux/vivado/project_1/project_1.sdk/webtalk
 # Command line: wbtcv -mode batch -source sdk_webtalk.tcl
-# Log file: /home/ja/project_1/project_1.sdk/webtalk/webtalk.log
-# Journal file: /home/ja/project_1/project_1.sdk/webtalk/webtalk.jou
+# Log file: /home/ja/Dokumenty/zedboard_linux/vivado/project_1/project_1.sdk/webtalk/webtalk.log
+# Journal file: /home/ja/Dokumenty/zedboard_linux/vivado/project_1/project_1.sdk/webtalk/webtalk.jou
 #-----------------------------------------------------------
 source sdk_webtalk.tcl
-# webtalk_init -webtalk_dir /home/ja/project_1/project_1.sdk/webtalk
+# webtalk_init -webtalk_dir /home/ja/Dokumenty/zedboard_linux/vivado/project_1/project_1.sdk/webtalk
 # webtalk_register_client -client project
-# webtalk_add_data -client project -key date_generated -value "2020-06-13 12:06:11" -context "software_version_and_target_device"
+# webtalk_add_data -client project -key date_generated -value "2020-06-13 13:32:32" -context "software_version_and_target_device"
 # webtalk_add_data -client project -key product_version -value "SDK v2018.3" -context "software_version_and_target_device"
 # webtalk_add_data -client project -key build_version -value "2018.3" -context "software_version_and_target_device"
 # webtalk_add_data -client project -key os_platform -value "amd64" -context "software_version_and_target_device"
@@ -24,9 +24,9 @@ source sdk_webtalk.tcl
 # webtalk_add_data -client project -key target_device -value "NA" -context "software_version_and_target_device"
 # webtalk_add_data -client project -key target_package -value "NA" -context "software_version_and_target_device"
 # webtalk_add_data -client project -key target_speed -value "NA" -context "software_version_and_target_device"
-# webtalk_add_data -client project -key random_id -value "v6pprrof6v8719dijtk6pubg7e" -context "software_version_and_target_device"
-# webtalk_add_data -client project -key project_id -value "2018.3_1" -context "software_version_and_target_device"
-# webtalk_add_data -client project -key project_iteration -value "1" -context "software_version_and_target_device"
+# webtalk_add_data -client project -key random_id -value "v8tfhq786aeckvaak2sk03qos9" -context "software_version_and_target_device"
+# webtalk_add_data -client project -key project_id -value "2018.3_2" -context "software_version_and_target_device"
+# webtalk_add_data -client project -key project_iteration -value "2" -context "software_version_and_target_device"
 # webtalk_add_data -client project -key os_name -value "Ubuntu" -context "user_environment"
 # webtalk_add_data -client project -key os_release -value "Ubuntu 18.04.4 LTS" -context "user_environment"
 # webtalk_add_data -client project -key cpu_name -value "Intel(R) Core(TM) i5-7200U CPU @ 2.50GHz" -context "user_environment"
@@ -34,35 +34,25 @@ source sdk_webtalk.tcl
 # webtalk_add_data -client project -key total_processors -value "4" -context "user_environment"
 # webtalk_add_data -client project -key system_ram -value "4,098 GB" -context "user_environment"
 # webtalk_register_client -client sdk
-# webtalk_add_data -client sdk -key uid -value "1591958424000" -context "sdk\\\\hardware/1591958424000"
-# webtalk_add_data -client sdk -key isZynq -value "true" -context "sdk\\\\hardware/1591958424000"
-# webtalk_add_data -client sdk -key isZynqMP -value "false" -context "sdk\\\\hardware/1591958424000"
-# webtalk_add_data -client sdk -key Processors -value "2" -context "sdk\\\\hardware/1591958424000"
-# webtalk_add_data -client sdk -key VivadoVersion -value "2018.3" -context "sdk\\\\hardware/1591958424000"
-# webtalk_add_data -client sdk -key Arch -value "zynq" -context "sdk\\\\hardware/1591958424000"
-# webtalk_add_data -client sdk -key Device -value "7z020" -context "sdk\\\\hardware/1591958424000"
-# webtalk_add_data -client sdk -key IsHandoff -value "true" -context "sdk\\\\hardware/1591958424000"
-# webtalk_add_data -client sdk -key os -value "NA" -context "sdk\\\\hardware/1591958424000"
-# webtalk_add_data -client sdk -key apptemplate -value "NA" -context "sdk\\\\hardware/1591958424000"
-# webtalk_add_data -client sdk -key RecordType -value "HWCreation" -context "sdk\\\\hardware/1591958424000"
-# webtalk_add_data -client sdk -key uid -value "1591958653000" -context "sdk\\\\bsp/1591958653000"
-# webtalk_add_data -client sdk -key hwid -value "1591958424000" -context "sdk\\\\bsp/1591958653000"
-# webtalk_add_data -client sdk -key os -value "device_tree" -context "sdk\\\\bsp/1591958653000"
-# webtalk_add_data -client sdk -key apptemplate -value "null" -context "sdk\\\\bsp/1591958653000"
-# webtalk_add_data -client sdk -key RecordType -value "BSPCreation" -context "sdk\\\\bsp/1591958653000"
-# webtalk_add_data -client sdk -key uid -value "1592038654000" -context "sdk\\\\bsp/1592038654000"
-# webtalk_add_data -client sdk -key hwid -value "1591958424000" -context "sdk\\\\bsp/1592038654000"
-# webtalk_add_data -client sdk -key os -value "device_tree" -context "sdk\\\\bsp/1592038654000"
-# webtalk_add_data -client sdk -key apptemplate -value "null" -context "sdk\\\\bsp/1592038654000"
-# webtalk_add_data -client sdk -key RecordType -value "BSPCreation" -context "sdk\\\\bsp/1592038654000"
-# webtalk_add_data -client sdk -key uid -value "NA" -context "sdk\\\\bsp/1592042770826"
-# webtalk_add_data -client sdk -key RecordType -value "ToolUsage" -context "sdk\\\\bsp/1592042770826"
-# webtalk_add_data -client sdk -key BootgenCount -value "0" -context "sdk\\\\bsp/1592042770826"
-# webtalk_add_data -client sdk -key DebugCount -value "0" -context "sdk\\\\bsp/1592042770826"
-# webtalk_add_data -client sdk -key PerfCount -value "0" -context "sdk\\\\bsp/1592042770826"
-# webtalk_add_data -client sdk -key FlashCount -value "0" -context "sdk\\\\bsp/1592042770826"
-# webtalk_add_data -client sdk -key CrossTriggCount -value "0" -context "sdk\\\\bsp/1592042770826"
-# webtalk_add_data -client sdk -key QemuDebugCount -value "0" -context "sdk\\\\bsp/1592042770826"
-# webtalk_transmit -clientid 382872535 -regid "211458492_1777530952_210671728_004" -xml /home/ja/project_1/project_1.sdk/webtalk/usage_statistics_ext_sdk.xml -html /home/ja/project_1/project_1.sdk/webtalk/usage_statistics_ext_sdk.html -wdm /home/ja/project_1/project_1.sdk/webtalk/sdk_webtalk.wdm -intro "<H3>SDK Usage Report</H3><BR>"
+# webtalk_add_data -client sdk -key uid -value "1592047915000" -context "sdk\\\\hardware/1592047915000"
+# webtalk_add_data -client sdk -key isZynq -value "true" -context "sdk\\\\hardware/1592047915000"
+# webtalk_add_data -client sdk -key isZynqMP -value "false" -context "sdk\\\\hardware/1592047915000"
+# webtalk_add_data -client sdk -key Processors -value "2" -context "sdk\\\\hardware/1592047915000"
+# webtalk_add_data -client sdk -key VivadoVersion -value "2018.3" -context "sdk\\\\hardware/1592047915000"
+# webtalk_add_data -client sdk -key Arch -value "zynq" -context "sdk\\\\hardware/1592047915000"
+# webtalk_add_data -client sdk -key Device -value "7z020" -context "sdk\\\\hardware/1592047915000"
+# webtalk_add_data -client sdk -key IsHandoff -value "true" -context "sdk\\\\hardware/1592047915000"
+# webtalk_add_data -client sdk -key os -value "NA" -context "sdk\\\\hardware/1592047915000"
+# webtalk_add_data -client sdk -key apptemplate -value "NA" -context "sdk\\\\hardware/1592047915000"
+# webtalk_add_data -client sdk -key RecordType -value "HWCreation" -context "sdk\\\\hardware/1592047915000"
+# webtalk_add_data -client sdk -key uid -value "NA" -context "sdk\\\\bsp/1592047952743"
+# webtalk_add_data -client sdk -key RecordType -value "ToolUsage" -context "sdk\\\\bsp/1592047952743"
+# webtalk_add_data -client sdk -key BootgenCount -value "0" -context "sdk\\\\bsp/1592047952743"
+# webtalk_add_data -client sdk -key DebugCount -value "0" -context "sdk\\\\bsp/1592047952743"
+# webtalk_add_data -client sdk -key PerfCount -value "0" -context "sdk\\\\bsp/1592047952743"
+# webtalk_add_data -client sdk -key FlashCount -value "0" -context "sdk\\\\bsp/1592047952743"
+# webtalk_add_data -client sdk -key CrossTriggCount -value "0" -context "sdk\\\\bsp/1592047952743"
+# webtalk_add_data -client sdk -key QemuDebugCount -value "0" -context "sdk\\\\bsp/1592047952743"
+# webtalk_transmit -clientid 4180654115 -regid "211458492_1777530952_210671728_004" -xml /home/ja/Dokumenty/zedboard_linux/vivado/project_1/project_1.sdk/webtalk/usage_statistics_ext_sdk.xml -html /home/ja/Dokumenty/zedboard_linux/vivado/project_1/project_1.sdk/webtalk/usage_statistics_ext_sdk.html -wdm /home/ja/Dokumenty/zedboard_linux/vivado/project_1/project_1.sdk/webtalk/sdk_webtalk.wdm -intro "<H3>SDK Usage Report</H3><BR>"
 # webtalk_terminate
-INFO: [Common 17-206] Exiting Webtalk at Sat Jun 13 12:06:13 2020...
+INFO: [Common 17-206] Exiting Webtalk at Sat Jun 13 13:32:36 2020...

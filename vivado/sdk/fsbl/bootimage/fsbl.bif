@@ -1,0 +1,7 @@
+//arch = zynq; split = false; format = BIN
+the_ROM_image:
+{
+	[bootloader]/home/ja/Dokumenty/zedboard_linux/vivado/sdk/fsbl/Debug/fsbl.elf
+	/home/ja/Dokumenty/zedboard_linux/vivado/sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit
+	/home/ja/Dokumenty/zedboard_linux/sdimage/zed/u-boot.elf
+}

@@ -1,0 +1,156 @@
+#!/bin/bash
+
+# You might consider explicit prompting: -p and specifying 1-character-input -n1 which allows to insert y without ENTER.
+#read -n1 -p "Zainstalowac kompilator? [y,n]" ZainstalujKompiler 
+
+
+while getopts i:u:k:r:g: option
+do
+case "${option}"
+in
+  i) PRZYGOTOWANIE=${OPTARG};;    #instalacja
+  u) KOMP_UBOOT=${OPTARG};;       #kompilacja u-boota
+  k) KOMP_KERNEL=${OPTARG};;        #kompilacja krenela
+  r) RODZAJ=${OPTARG};;            #Rodzaj plytki
+  g) GITT=${OPTARG};;			#wypchniecie na gita
+esac
+done
+
+
+if [ -n "$GITT" ];then
+	git add . && \
+	git commit -m "$GITT" && \
+	git push
+	
+	if [[ $? -eq 0 ]];then
+		echo "Successfully"
+	else
+		echo "Failure"
+	fi
+	
+	echo "Wyjscie ze skryptu"
+	exit 0
+fi
+
+
+
+#if [ "$RODZAJ" = "zed" ];then
+
+  
+if  [ "$RODZAJ" = "zybo" ];then
+  echo "wybrany zybo board"
+  komp_uboot="zynq_zybo_config"
+  plikdts="zynq-zybo.dts"
+  FolderDocelowy="zybo"
+else
+  echo "Wybrany zed board"
+  komp_uboot="zynq_zed_config"
+  plikdts="zynq-zed.dts"
+  FolderDocelowy="zed"
+  #echo "zla plytka ( -r zed / zybo)"
+  #exit 1
+fi
+
+
+
+
+# Przygotowanie linuxa
+if [ "$PRZYGOTOWANIE" = "tak" ];then
+  sudo apt install libssl-dev -y
+  sudo apt install build-essential flex libelf-dev libc6-dev-amd64 binutils-dev libdwarf-dev -y
+  sudo apt install --reinstall bison libbison-dev flex libfl-dev -y
+  sudo apt install gcc-arm-linux-gnueabihf -y
+  sudo apt install make -y
+  sudo apt install make-guile -y
+  echo " >>> KONIEC INSTALACJI <<<"
+fi
+
+# pobranie repow
+#if [ "$POBRANIE" = "tak" ];then
+#    echo "\nPobieranie repa u-boota"
+#    git clone https://github.com/Xilinx/u-boot-xlnx.git
+#    git clone https://github.com/Xilinx/linux-xlnx.git
+#fi
+
+# Kompilacja u-boota
+if [ "$KOMP_UBOOT" = "tak" ];then
+  
+  echo "*****************************************"
+  echo "*****************************************"
+  echo "************                      *******"
+  echo "************  kompilacja u-boota  *******"
+  echo "************                      *******"
+  echo "*****************************************"
+  echo "*****************************************"
+  cd ./u-boot-xlnx && \
+#  srcvivado
+  make distclean
+  make CROSS_COMPILE=arm-linux-gnueabihf- $komp_uboot && \
+  make CROSS_COMPILE=arm-linux-gnueabihf- -j4&& \
+  mkdir -p ../sdimage/$FolderDocelowy/ && \
+  cp u-boot ../sdimage/$FolderDocelowy/u-boot.elf
+  if [[ $? -eq 0 ]];then
+     echo "Successfully ***** U-Boot skompilowany z sukcesem *****\n"
+  else
+     echo "Failure U-Boot babol"
+     exit 1
+  fi
+  cd ../
+fi
+
+
+#https://github.com/Xilinx/linux-xlnx.git
+if [ "$KOMP_KERNEL" = "tak" ];then
+  
+  echo "*****************************************"
+  echo "*****************************************"
+  echo "************                      *******"
+  echo "************  kompilacja linuxa   *******"
+  echo "************                      *******"
+  echo "*****************************************"
+  echo "*****************************************"
+  
+  cd ./linux-xlnx && \
+
+  
+
+  make distclean && \
+  make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- xilinx_zynq_defconfig && \
+  echo "to tera prawdziwy make" && \
+  make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- -j4&& \
+  PATH=$PATH:$PWD/../u-boot-xlnx/tools/ && \
+  make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- UIMAGE_LOADADDR=0x8000 uImage && \
+  mkdir -p ../sdimage/ && \
+  cp ./arch/arm/boot/uImage ../sdimage/$FolderDocelowy/
+  wynik=$?
+  
+  cp ../vivado/project_1/project_1.sdk/device_tree_bsp_0/devicetree.dtb ../sdimage/$FolderDocelowy/
+# cp ./../$plikdts ./arch/arm/boot/dts/
+
+#  ./scripts/dtc/dtc -I dts -O dtb -o ../sdimage/$FolderDocelowy/devicetree.dtb arch/arm/boot/dts/$plikdts
+
+
+  #echo "wynik wynosi: $wynik"
+
+  if [[ $wynik -eq 0 ]];then
+     echo "Successfully ***** Kernel skompilowany z sukcesem *****"
+  else
+     echo "Failure Kernel babol"
+     exit 1
+  fi
+  
+  cd ../
+fi
+
+if [ "$KOMP_KERNEL" = "dts" ];then
+    echo "obrabianie dtsa" 
+    cd ./linux-xlnx && \
+    cp ./../$plikdts ./arch/arm/boot/dts/
+    ./scripts/dtc/dtc -I dts -O dtb -o ../sdimage/$FolderDocelowy/devicetree.dtb arch/arm/boot/dts/$plikdts
+fi
+#start=`date +%s`
+#end=`date +%s`
+#runtime=$((end-start))
+
+
+echo ">>> KONIEC SKRYPTU <<<"

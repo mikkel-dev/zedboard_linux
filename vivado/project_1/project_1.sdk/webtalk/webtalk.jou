@@ -2,11 +2,11 @@
 # Webtalk v2018.3 (64-bit)
 # SW Build 2405991 on Thu Dec  6 23:36:41 MST 2018
 # 
-# Start of session at: Sat Jun 13 12:06:13 2020
-# Process ID: 17870
-# Current directory: /home/ja/project_1/project_1.sdk/webtalk
+# Start of session at: Sat Jun 13 13:32:36 2020
+# Process ID: 4420
+# Current directory: /home/ja/Dokumenty/zedboard_linux/vivado/project_1/project_1.sdk/webtalk
 # Command line: wbtcv -mode batch -source sdk_webtalk.tcl
-# Log file: /home/ja/project_1/project_1.sdk/webtalk/webtalk.log
-# Journal file: /home/ja/project_1/project_1.sdk/webtalk/webtalk.jou
+# Log file: /home/ja/Dokumenty/zedboard_linux/vivado/project_1/project_1.sdk/webtalk/webtalk.log
+# Journal file: /home/ja/Dokumenty/zedboard_linux/vivado/project_1/project_1.sdk/webtalk/webtalk.jou
 #-----------------------------------------------------------
 source sdk_webtalk.tcl
