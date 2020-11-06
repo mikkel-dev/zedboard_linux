@@ -57,7 +57,7 @@ fi
 # Przygotowanie linuxa
 if [ "$PRZYGOTOWANIE" = "tak" ];then
   sudo apt install libssl-dev -y
-  sudo apt install build-essential flex libelf-dev libc6-dev-amd64 binutils-dev libdwarf-dev -y
+  sudo apt install build-essential flex libelf-dev libc6-dev-amd64 binutils-dev libdwarf-dev libncurses-dev -y
   sudo apt install --reinstall bison libbison-dev flex libfl-dev -y
   sudo apt install gcc-arm-linux-gnueabihf -y
   sudo apt install make -y
@@ -124,7 +124,7 @@ if [ "$KOMP_KERNEL" = "tak" ];then
   cp ./arch/arm/boot/uImage ../sdimage/$FolderDocelowy/
   wynik=$?
   
-  cp ../vivado/project_1/project_1.sdk/device_tree_bsp_0/devicetree.dtb ../sdimage/$FolderDocelowy/
+#  cp ../vivado/project_1/project_1.sdk/device_tree_bsp_0/devicetree.dtb ../sdimage/$FolderDocelowy/
 # cp ./../$plikdts ./arch/arm/boot/dts/
 
 #  ./scripts/dtc/dtc -I dts -O dtb -o ../sdimage/$FolderDocelowy/devicetree.dtb arch/arm/boot/dts/$plikdts
