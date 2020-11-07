@@ -44,7 +44,7 @@ if  [ "$RODZAJ" = "zybo" ];then
   FolderDocelowy="zybo"
 else
   echo "Wybrany zed board"
-  komp_uboot="zynq_zed_config"
+  komp_uboot="zynq_zed_defconfig"
   plikdts="zynq-zed.dts"
   FolderDocelowy="zed"
   #echo "zla plytka ( -r zed / zybo)"
@@ -85,8 +85,9 @@ if [ "$KOMP_UBOOT" = "tak" ];then
   cd ./u-boot-xlnx && \
 #  srcvivado
   make distclean
-  make CROSS_COMPILE=arm-linux-gnueabihf- $komp_uboot && \
-  make CROSS_COMPILE=arm-linux-gnueabihf- -j4&& \
+  export CROSS_COMPILE=arm-linux-gnueabihf-
+  make $komp_uboot && \
+  make -j4&& \
   mkdir -p ../sdimage/$FolderDocelowy/ && \
   cp u-boot ../sdimage/$FolderDocelowy/u-boot.elf
   if [[ $? -eq 0 ]];then
